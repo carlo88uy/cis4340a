@@ -6,13 +6,12 @@
 // --- NON-COMPLIANT CODE ---
 /*
 public final class Worker implements Runnable {
-  public void run() { /* work */ }
+  public void run() 
   
   public static void main(String[] args) {
     Thread t = new Thread(new Worker());
     t.start();
-    // ...
-    t.stop(); // Unsafe!
+    t.stop(); 
   }
 }
 */
@@ -22,10 +21,10 @@ public final class Worker implements Runnable {
   private volatile boolean done = false;
   
   public void run() {
-    while (!done) { /* work */ }
+    while (!done)
   }
 
   public void shutDown() {
-    done = true; // Safe interruption
+    done = true;
   }
 }
